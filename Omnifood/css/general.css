@@ -1,0 +1,281 @@
+/*
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+--- 2 Typography 
+
+- Font weight
+
+* Defalut : 400
+500
+600
+Bold : 700
+
+- Line Height
+
+* Default : 1
+Small : 1.2
+Medium : 1.5
+Default Paragraph : 1.6
+Large : 1.8
+
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+--- 2 Colors 
+
+- Primary : #e67e22
+
+- Tints : 
+#fdf2e9 
+
+#fae5d3
+
+#eb984e
+
+- Shades :
+#cf711f
+
+#45260a
+
+- Accents :
+
+- Greys 
+
+#888
+
+#767676 - ( lighest grey allow for white #fff )
+
+#6f6f6f - ( smaller text for #fae5d3 )
+
+#555
+
+#333
+
+
+--- 05 Shadows
+
+0 2.4rem 4.8rem 0 rgb(0, 0, 0, 0.075);
+
+--- 06 Border-Radius
+
+Default : 9px
+Medium : 11px
+
+--- 07 Whitespaces 
+
+-Spacing System (px)
+
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1;
+  color: #555;
+  font-weight: 400;
+
+  overflow-x: hidden;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */  
+  font-size: 62.5%;
+
+  /* only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+
+  /* Not supported in safari */
+  scroll-behavior: smooth;
+}
+
+
+/**********************************/
+/* GENERNAL REUSABLE COMPONENTS */
+/**********************************/
+
+.container {
+  /* 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  /* color: #45260a; */
+  /* color: #343a40; */
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+  color: #333;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+  color: #cf711f;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+/* <!-- FOR ICON SYMBOLS --> */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+}
+
+.list-items {
+  font-size: 1.8rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.list-icon {
+  color: #e67e22;
+  height: 2.6rem;
+  width: 2.6rem;
+}
+
+.list-icon-wrong {
+  color: #e03131;
+  height: 2.6rem;
+  width: 2.6rem;
+}
+
+/* <!-------------------------> */
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: 0.9rem;
+  font-weight: 700;
+
+  /* only required for .btn */
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+
+  /* Put transition on original "state" */
+  transition: all 300ms;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+  /* margin-right: 1.6rem; */
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+  color: #fff;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+
+  /* border: 3px solid 0 0 0 3px #fff; */
+
+  /* Trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+:focus {
+  outline: none;
+}
+
+/*<!-- HELPER/SETTING CLASSES -->*/
+
+.margin-right-sn {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+strong {
+  font-weight: 500;
+}
